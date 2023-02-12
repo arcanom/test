@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center">
+  <div class="card col-lg-6 col-md-8 col-sm-11 p-2 ">
+    <div class="text-center">
+      <h2>Nouveau Module</h2>
+    </div>
+    <form action="" [formGroup]="form" (ngSubmit)="validateModule()">
+      <div class="d-flex justify-content-around mb-3 ">
+        <label for="" class="form-label">Nom :</label>
+        <input type="text" class="form-control w-50" formControlName="name">
+      </div>
+      <div *ngIf="name!.invalid && name!.touched" class="text-danger text-center">
+        <div *ngIf="name!.errors?.['required']">
+          <small> Le champ est requis</small>
+        </div>
+      </div>
+      <div class="form-control " >
+        <p>Etat:</p>
+          <div class="form-check ">
+            <input class="form-check-input" type="radio" formControlName="state" name="state" id="flexRadioDefault1" value="true">
+            <label class="form-check-label" for="flexRadioDefault1">
+             En marche
+            </label>
+            <div class="form-check ">
+              <input class="form-check-input" type="radio" formControlName="state" name="state" id="flexRadioDefault2" value="false" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+               En panne
+              </label>
+            </div>
+          </div>
+      </div>
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary"> Valider</button>
+      </div>
+    </form>
+
+  </div>
+</div>

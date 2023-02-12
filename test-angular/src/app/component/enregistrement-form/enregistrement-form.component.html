@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="card col-lg-6 col-md-8 col-sm-11 p-2 " >
+    <div class="text-center">
+      <h2>Nouveau Enregistrement pour le module n° {{moduleId}}</h2>
+    </div>
+    <form action="" [formGroup]="form" (ngSubmit)="validateEnregistrement()">
+      <div class="d-flex justify-content-around mb-3 ">
+        <label for="" class="form-label">Date :</label>
+        <input type="date" class="form-control w-50" formControlName="date">
+      </div>
+      <div *ngIf="date!.invalid && date!.touched" class="text-danger text-center">
+        <div *ngIf="date!.errors?.['required']">
+          <small> Le champ est requis</small>
+        </div>
+      </div>
+      <div class="d-flex justify-content-around mb-3 ">
+        <label for="" class="form-label">Vitesse :</label>
+        <input type="number" class="form-control w-50" formControlName="rateMeasure">
+      </div>
+      <div *ngIf="rateMeasure!.invalid && rateMeasure!.touched" class="text-danger text-center">
+        <div *ngIf="rateMeasure!.errors?.['required']">
+          <small> Le champ est requis</small>
+        </div>
+      </div>
+      <div class="d-flex justify-content-around mb-3 ">
+        <label for="" class="form-label">Temperature :</label>
+        <input type="number" class="form-control w-50" formControlName="temperatureMeasure">
+      </div>
+      <div *ngIf="temperatureMeasure!.invalid && temperatureMeasure!.touched" class="text-danger text-center">
+        <div *ngIf="temperatureMeasure!.errors?.['required']">
+          <small> Le champ est requis</small>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary"> Valider</button>
+      </div>
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div *ngIf="modules==null " class="d-flex justify-content-center">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Aucun modulé trouvé </h5>
+        <p class="card-text"> Vous pouvez en créer un ci-dessous </p>
+        <button type="button" class="btn btn-primary" routerLink="/module-form">Nouveau module</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="modules != null" >
+    <div class="d-flex justify-content-center">
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">State</th>
+          <th scope="col">Enregistrement(s)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let module of modules">
+          <td>{{module.id}}</td>
+          <td>{{module.name}}</td>
+          <td *ngIf="module.state==true"> En marche</td>
+          <td *ngIf="module.state==false"> En panne</td>
+          <td  *ngIf="module.state==true"><button type="button" class="btn btn-primary"(click)="redirectToEnregistrement(module.id)">Voir Enregistrements</button></td>
+          <td *ngIf="module.state==false"> Impossible de faire des enregistrements</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <div class="text-end">
+      <button type="button" class="btn btn-primary" routerLink="/module-form">Nouveau Module</button>
+    </div>
+  </div>
+</div>

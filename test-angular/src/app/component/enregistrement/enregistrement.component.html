@@ -1,0 +1,41 @@
+<div class="container-fluid">
+ <div *ngIf="enregistrements.length == 0 " class="d-flex justify-content-center">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Aucun enregistrement trouvé </h5>
+        <p class="card-text"> Vous pouvez en créer un ci-dessous </p>
+        <button type="button" class="btn btn-primary" routerLink="/enregistrement-form">Nouveau enregistrement</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="enregistrements.length>0">
+    <div class="d-flex justify-content-center">
+
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Vitesse</th>
+            <th scope="col">Température</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let enregistrement of enregistrements">
+            <td>{{enregistrement.id}}</td>
+            <td>{{enregistrement.dateEnregistrement}}</td>
+            <td>{{enregistrement.rateMeasure}}</td>
+            <td>{{enregistrement.temperatureMeasure}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+      <div class="text-end">
+        <button type="button" class="btn btn-primary" routerLink="/enregistrement-form">Nouveau Enregistrement</button>
+      </div>
+    </div>
+
+  </div>
+
+
